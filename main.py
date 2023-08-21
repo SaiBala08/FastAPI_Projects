@@ -1,7 +1,9 @@
 
 
 from fastapi import FastAPI
-from pydantic import BaseModel
+from . import schemas
+# import uvicorn
+
 
 
 app = FastAPI()
@@ -18,10 +20,10 @@ def about(id : int):
 
 
 
-class Blog(BaseModel):
-    title : str
-    body : str
-
 @app.post('/blog')
-def post(request:Blog):
+def post(request:schemas.Blog):
     return {request.title:request.body} 
+
+
+# if __name__ == '__main__':
+#     uvicorn.run(app, host="127.0.0.1", port = 9000)
