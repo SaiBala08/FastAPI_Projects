@@ -1,7 +1,7 @@
 
 
 from fastapi import FastAPI
-from . import schemas
+from .blog import schemas
 # import uvicorn
 
 
