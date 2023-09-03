@@ -1,6 +1,16 @@
 
 from pydantic import BaseModel
 
-class Blog(BaseModel):
-    title : str
-    body : str
+class Account(BaseModel):
+    id : str
+    email : str
+    hashed_password : str
+    is_active : bool
+
+
+class ShowAccount(BaseModel):
+    email : str
+    hashed_password : str
+
+    class Config():
+        orm_mode = True
