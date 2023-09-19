@@ -8,9 +8,21 @@ class Account(BaseModel):
     is_active : bool
 
 
-class ShowAccount(BaseModel):
+
+class New_User(BaseModel):
+    id : int
+    name : str
     email : str
     hashed_password : str
+
+    class Config():
+        orm_mode = True
+
+
+class ShowAccount(BaseModel):
+    id : str
+    email : str
+    creator : New_User
 
     class Config():
         orm_mode = True
